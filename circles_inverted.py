@@ -66,7 +66,9 @@ class PlaneLine:
         if self.aboveLine == False:
             side *= -1
         
-        result = np.cross(AB, AP) * side
+        # Cross product of 2d vectors:  ax * by - ay * bx 
+        result = (AB[0] * AP[1]) - (AB[1] * AP[0])      # cross product
+        result = result * side
         if result >= 0: #error here using 3rd method?
             return True
         else: #technically: 0 means it's on the line which will be counted
